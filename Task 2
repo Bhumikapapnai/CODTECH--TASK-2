@@ -1,0 +1,73 @@
+//TEMPERATURE CONVERTER 
+
+
+
+#include <stdio.h>
+
+// Function prototypes
+void convertCelsius(float celsius);
+void convertFahrenheit(float fahrenheit);
+void convertKelvin(float kelvin);
+
+int main() {
+    int choice;
+    float temperature;
+
+    // Display menu
+    printf("Temperature Conversion Program\n");
+    printf("Choose the input scale:\n");
+    printf("1. Celsius\n");
+    printf("2. Fahrenheit\n");
+    printf("3. Kelvin\n");
+    printf("Enter your choice (1/2/3): ");
+    scanf("%d", &choice);
+
+    // Get temperature input
+    printf("Enter the temperature: ");
+    scanf("%f", &temperature);
+
+    // Perform conversion based on user choice
+    switch (choice) {
+        case 1:
+            convertCelsius(temperature);
+            break;
+        case 2:
+            convertFahrenheit(temperature);
+            break;
+        case 3:
+            convertKelvin(temperature);
+            break;
+        default:
+            printf("Invalid choice. Please enter 1, 2, or 3.\n");
+            break;
+    }
+
+    return 0;
+}
+
+// Function to convert Celsius to Fahrenheit and Kelvin
+void convertCelsius(float celsius) {
+    float fahrenheit = (celsius * 9 / 5) + 32;
+    float kelvin = celsius + 273.15;
+    printf("Temperature in Celsius: %.2f\n", celsius);
+    printf("Temperature in Fahrenheit: %.2f\n", fahrenheit);
+    printf("Temperature in Kelvin: %.2f\n", kelvin);
+}
+
+// Function to convert Fahrenheit to Celsius and Kelvin
+void convertFahrenheit(float fahrenheit) {
+    float celsius = (fahrenheit - 32) * 5 / 9;
+    float kelvin = celsius + 273.15;
+    printf("Temperature in Fahrenheit: %.2f\n", fahrenheit);
+    printf("Temperature in Celsius: %.2f\n", celsius);
+    printf("Temperature in Kelvin: %.2f\n", kelvin);
+}
+
+// Function to convert Kelvin to Celsius and Fahrenheit
+void convertKelvin(float kelvin) {
+    float celsius = kelvin - 273.15;
+    float fahrenheit = (celsius * 9 / 5) + 32;
+    printf("Temperature in Kelvin: %.2f\n", kelvin);
+    printf("Temperature in Celsius: %.2f\n", celsius);
+    printf("Temperature in Fahrenheit: %.2f\n", fahrenheit);
+}
